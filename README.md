@@ -1,0 +1,2 @@
+# LegalEase
+Lawyer Consultation Application
