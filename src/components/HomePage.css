@@ -1,0 +1,14 @@
+body{
+  background: #d9d9d9;
+}
+.App {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  margin-top: 60px;
+  margin-left: 200px;
+  padding: 20px;
+}
