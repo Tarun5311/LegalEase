@@ -18,35 +18,37 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="submit">Login</button>
-        <p>
-          Don't have an account?{" "}
-          <button type="button" onClick={handleRegisterClick}>
-            Register
-          </button>
-        </p>
-      </form>
+    <div className="bgg">
+      <div className="container">
+        <form className="login-form" onSubmit={handleSubmit}>
+          <h2>Login</h2>
+          <div className="form-group">
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <button type="submit">Login</button>
+          <p>
+            Don't have an account?{" "}
+            <button type="button" onClick={handleRegisterClick}>
+              Register
+            </button>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };

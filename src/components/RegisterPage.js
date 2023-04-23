@@ -34,53 +34,55 @@ const RegisterPage = () => {
 
 
   return (
-    <div className="container">
-      <form className="login-form" onSubmit={handleRegister}>
-        <h2>Register</h2>
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={handleEmailChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="text">First Name:</label>
-          <input
-            type="text"
-            id="first name"
-            value={firstName}
-            onChange={handleFirstNameChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="text">Last Name:</label>
-          <input
-            type="text"
-            id="last name"
-            value={lastName}
-            onChange={handleLastNameChange}
-          />
-        </div>
-        <button type="submit">Register</button>
-        <p>
-          Already have an account?{" "}
-          <button type="button" onClick={()=>navigate("/login")}>
-            Login
-          </button>
-        </p>
-      </form>
+    <div className="bgg">
+      <div className="container">
+        <form className="register-form" onSubmit={handleRegister}>
+          <h2>Register</h2>
+          <div className="form-group">
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={handleEmailChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="text">First Name:</label>
+            <input
+              type="text"
+              id="first name"
+              value={firstName}
+              onChange={handleFirstNameChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="text">Last Name:</label>
+            <input
+              type="text"
+              id="last name"
+              value={lastName}
+              onChange={handleLastNameChange}
+            />
+          </div>
+          <button type="submit">Register</button>
+          <p>
+            Already have an account?{" "}
+            <button type="button" onClick={()=>navigate("/login")}>
+              Login
+            </button>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };
