@@ -30,14 +30,13 @@
   
   .navbar-item {
     background-color: rgb(194, 65, 65);
-    border: 0.1;
-    border-color: rgb(194, 65, 65);
-    border-radius: 10px;
+    border: none;
+    border-radius: 20px;
     color: #1f2933;
     font-weight : bold;
     cursor: pointer;
     font-size: 16px;
-    padding: 10px 20px;
+    padding: 10px 15px;
     margin-right: 40px;
   }
   
