@@ -1,0 +1,76 @@
+.row-card {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background-color: #f1f1f1;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.row-card:hover {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background-color: #fafafa;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    margin-top: 15px;
+  }
+
+.profile-photo {
+  flex-basis: 20%;
+}
+
+.profile-photo img {
+  height: 50%;
+  width: 50%;
+  border-radius: 50%;
+}
+
+.qualifications {
+  flex-basis: 40%;
+  margin-left: 16px;
+}
+
+.qualifications h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.qualifications p {
+  font-size: 18px;
+  color: #555;
+}
+
+.bio {
+  flex-basis: 30%;
+  margin-left: 16px;
+}
+
+.bio p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.consult-button {
+  flex-basis: 10%;
+  margin-left: 16px;
+}
+
+.consult-button button {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  font-size: 18px;
+  background-color: #1f2933;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.consult-button button:hover {
+  background-color: #04509d;
+}
