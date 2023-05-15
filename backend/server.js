@@ -1,24 +1,26 @@
-const express =require('express')
-const colors = require('colors')
-const morgan = require('morgan')
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
+require("./db/conn");
+const userRouter = require("./routes/userRoutes");
+const doctorRouter = require("./routes/doctorRoutes");
+const appointRouter = require("./routes/appointRoutes");
+const path = require("path");
+const notificationRouter = require("./routes/notificationRouter");
 
+const app = express();
+const port = process.env.PORT || 5000;
 
-dotenv.config();
+app.use(cors());
+app.use(express.json());
+app.use("/api/user", userRouter);
+app.use("/api/doctor", doctorRouter);
+app.use("/api/appointment", appointRouter);
+app.use("/api/notification", notificationRouter);
+app.use(express.static(path.join(__dirname, "./client/build")));
 
-connectDB();
-
-const app = express()
-
-app.use(express.json())
-app.use(morgan('dev'))
-app.use("/api/v1/user/", require("./routes/userRoutes"));
-
-const port  = process.env.PORT || 8080
-
-app.listen(port, () => {
-    console.log(
-        `Server Running in ${process.env.NODE_MODE} Mode on port ${process.env.PORT}`.bgCyan.white
-    );
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
+app.listen(port, () => {});
