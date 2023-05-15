@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import "../styles/doctorapply.css";
+import "../styles/lawyerapply.css";
 import axios from "axios";
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
 
-function DoctorApply() {
+function LawyerApply() {
   const [formDetails, setFormDetails] = useState({
     specialization: "",
     experience: "",
@@ -31,7 +31,7 @@ function DoctorApply() {
       }
       const { data } = await toast.promise(
         axios.post(
-          "/doctor/applyfordoctor",
+          "/lawyer/applyforlawyer",
 
           {
             specialization,
@@ -58,9 +58,9 @@ function DoctorApply() {
   };
 
   return (
-    <section className="apply-doctor-section flex-center">
-      <div className="apply-doctor-container flex-center">
-        <h2 className="form-heading">Apply For Doctor</h2>
+    <section className="apply-lawyer-section flex-center">
+      <div className="apply-lawyer-container flex-center">
+        <h2 className="form-heading">Apply For Lawyer</h2>
         <form onSubmit={formSubmit} className="register-form">
           <input
             type="text"
@@ -109,4 +109,4 @@ function DoctorApply() {
   );
 }
 
-export default DoctorApply;
+export default LawyerApply;

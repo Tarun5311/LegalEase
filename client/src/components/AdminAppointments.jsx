@@ -60,8 +60,8 @@ const AdminAppointments = () => {
           "/appointment/completed",
           {
             appointid: ele._id,
-            doctorId: ele.doctorId._id,
-            doctorname: `${ele.userId.firstname} ${ele.userId.lastname}`,
+            lawyerId: ele.lawyerId._id,
+            lawyername: `${ele.userId.firstname} ${ele.userId.lastname}`,
           },
           {
             headers: {
@@ -95,7 +95,7 @@ const AdminAppointments = () => {
                 <thead>
                   <tr>
                     <th>S.No</th>
-                    <th>Doctor</th>
+                    <th>Lawyer</th>
                     <th>Patient</th>
                     <th>Appointment Date</th>
                     <th>Appointment Time</th>
@@ -112,9 +112,9 @@ const AdminAppointments = () => {
                       <tr key={ele._id}>
                         <td>{i + 1}</td>
                         <td>
-                          {ele.doctorId?.firstname +
+                          {ele.lawyerId?.firstname +
                             " " +
-                            ele.doctorId?.lastname}
+                            ele.lawyerId?.lastname}
                         </td>
                         <td>
                           {ele.userId?.firstname + " " + ele.userId?.lastname}

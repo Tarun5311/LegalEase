@@ -1,8 +1,8 @@
-import "../styles/doctorcard.css";
+import "../styles/lawyercard.css";
 import React, { useState } from "react";
-import BookAppointment from "../components/BookAppointment";
+import BookAppointment from "./BookAppointment";
 
-const DoctorCard = ({ ele }) => {
+const LawyerCard = ({ ele }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -50,4 +50,4 @@ const DoctorCard = ({ ele }) => {
   );
 };
 
-export default DoctorCard;
+export default LawyerCard;

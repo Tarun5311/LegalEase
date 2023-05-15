@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
 
-const ApplyDoctor = () => {
+const ApplyLawyer = () => {
   const navigate = useNavigate();
   const [formDetails, setFormDetails] = useState({
     specialization: "",
@@ -29,7 +29,7 @@ const ApplyDoctor = () => {
     try {
       const { data } = await toast.promise(
         axios.post(
-          "/doctor/applyfordoctor",
+          "/lawyer/applyforlawyer",
           {
             formDetails,
           },
@@ -40,9 +40,9 @@ const ApplyDoctor = () => {
           }
         ),
         {
-          success: "Doctor application sent successfully",
-          error: "Unable to send Doctor application",
-          loading: "Sending doctor application...",
+          success: "Lawyer application sent successfully",
+          error: "Unable to send Lawyer application",
+          loading: "Sending lawyer application...",
         }
       );
 
@@ -56,11 +56,11 @@ const ApplyDoctor = () => {
     <>
       <Navbar />
       <section
-        className="register-section flex-center apply-doctor"
+        className="register-section flex-center apply-lawyer"
         id="contact"
       >
         <div className="register-container flex-center contact">
-          <h2 className="form-heading">Apply for Doctor</h2>
+          <h2 className="form-heading">Apply for Lawyer</h2>
           <form className="register-form ">
             <input
               type="text"
@@ -82,7 +82,7 @@ const ApplyDoctor = () => {
               type="number"
               name="fees"
               className="form-input"
-              placeholder="Enter your fees  (in dollars)"
+              placeholder="Enter your fees (in dollars)"
               value={formDetails.fees}
               onChange={inputChange}
             />
@@ -101,4 +101,4 @@ const ApplyDoctor = () => {
   );
 };
 
-export default ApplyDoctor;
+export default ApplyLawyer;

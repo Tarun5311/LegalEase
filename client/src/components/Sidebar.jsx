@@ -29,8 +29,8 @@ const Sidebar = () => {
       icon: <FaUsers />,
     },
     {
-      name: "Doctors",
-      path: "/dashboard/doctors",
+      name: "Lawyers",
+      path: "/dashboard/lawyers",
       icon: <FaUserMd />,
     },
     {

@@ -10,16 +10,16 @@ import fetchData from "../helper/apiCall";
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
 
-const AdminDoctors = () => {
-  const [doctors, setDoctors] = useState([]);
+const AdminLawyers = () => {
+  const [lawyers, setLawyers] = useState([]);
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.root);
 
-  const getAllDoctors = async (e) => {
+  const getAllLawyers = async (e) => {
     try {
       dispatch(setLoading(true));
-      const temp = await fetchData(`/doctor/getalldoctors`);
-      setDoctors(temp);
+      const temp = await fetchData(`/lawyer/getalllawyers`);
+      setLawyers(temp);
       dispatch(setLoading(false));
     } catch (error) {}
   };
@@ -30,7 +30,7 @@ const AdminDoctors = () => {
       if (confirm) {
         const { data } = await toast.promise(
           axios.put(
-            "/doctor/deletedoctor",
+            "/lawyer/deletelawyer",
             { userId },
             {
               headers: {
@@ -39,12 +39,12 @@ const AdminDoctors = () => {
             }
           ),
           {
-            success: "Doctor deleted successfully",
-            error: "Unable to delete Doctor",
-            loading: "Deleting Doctor...",
+            success: "Lawyer deleted successfully",
+            error: "Unable to delete Lawyer",
+            loading: "Deleting Lawyer...",
           }
         );
-        getAllDoctors();
+        getAllLawyers();
       }
     } catch (error) {
       return error;
@@ -52,7 +52,7 @@ const AdminDoctors = () => {
   };
 
   useEffect(() => {
-    getAllDoctors();
+    getAllLawyers();
   }, []);
 
   return (
@@ -61,8 +61,8 @@ const AdminDoctors = () => {
         <Loading />
       ) : (
         <section className="user-section">
-          <h3 className="home-sub-heading">All Doctors</h3>
-          {doctors.length > 0 ? (
+          <h3 className="home-sub-heading">All Lawyers</h3>
+          {lawyers.length > 0 ? (
             <div className="user-container">
               <table>
                 <thead>
@@ -80,7 +80,7 @@ const AdminDoctors = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {doctors?.map((ele, i) => {
+                  {lawyers?.map((ele, i) => {
                     return (
                       <tr key={ele._id}>
                         <td>{i + 1}</td>
@@ -123,4 +123,4 @@ const AdminDoctors = () => {
   );
 };
 
-export default AdminDoctors;
+export default AdminLawyers;
