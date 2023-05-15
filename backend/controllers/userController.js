@@ -1,7 +1,7 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const Doctor = require("../models/doctorModel");
+const Lawyer = require("../models/lawyerModel");
 const Appointment = require("../models/appointmentModel");
 
 const getuser = async (req, res) => {
@@ -89,7 +89,7 @@ const updateprofile = async (req, res) => {
 const deleteuser = async (req, res) => {
   try {
     const result = await User.findByIdAndDelete(req.body.userId);
-    const removeDoc = await Doctor.findOneAndDelete({
+    const removeDoc = await Lawyer.findOneAndDelete({
       userId: req.body.userId,
     });
     const removeAppoint = await Appointment.findOneAndDelete({

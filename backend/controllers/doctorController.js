@@ -1,16 +1,16 @@
-const Doctor = require("../models/doctorModel");
+const Lawyer = require("../models/lawyerModel");
 const User = require("../models/userModel");
 const Notification = require("../models/notificationModel");
 const Appointment = require("../models/appointmentModel");
 
-const getalldoctors = async (req, res) => {
+const getalllawyers = async (req, res) => {
   try {
     let docs;
     if (!req.locals) {
-      docs = await Doctor.find({ isDoctor: true }).populate("userId");
+      docs = await Lawyer.find({ isLawyer: true }).populate("userId");
       console.log(docs)
     } else {
-      docs = await Doctor.find({ isDoctor: true })
+      docs = await Lawyer.find({ isLawyer: true })
         .find({
           _id: { $ne: req.locals },
         })
@@ -20,13 +20,13 @@ const getalldoctors = async (req, res) => {
     return res.send(docs);
   } catch (error) {
     console.log(error);
-    res.status(500).send("Unable to get doctors");
+    res.status(500).send("Unable to get lawyers");
   }
 };
 
-const getnotdoctors = async (req, res) => {
+const getnotlawyers = async (req, res) => {
   try {
-    const docs = await Doctor.find({ isDoctor: false })
+    const docs = await Lawyer.find({ isLawyer: false })
       .find({
         _id: { $ne: req.locals },
       })
@@ -34,19 +34,19 @@ const getnotdoctors = async (req, res) => {
 
     return res.send(docs);
   } catch (error) {
-    res.status(500).send("Unable to get non doctors");
+    res.status(500).send("Unable to get non lawyers");
   }
 };
 
-const applyfordoctor = async (req, res) => {
+const applyforlawyer = async (req, res) => {
   try {
-    const alreadyFound = await Doctor.findOne({ userId: req.locals });
+    const alreadyFound = await Lawyer.findOne({ userId: req.locals });
     if (alreadyFound) {
       return res.status(400).send("Application already exists");
     }
 
-    const doctor = Doctor({ ...req.body.formDetails, userId: req.locals });
-    const result = await doctor.save();
+    const lawyer = Lawyer({ ...req.body.formDetails, userId: req.locals });
+    const result = await lawyer.save();
 
     return res.status(201).send("Application submitted successfully");
   } catch (error) {
@@ -54,16 +54,16 @@ const applyfordoctor = async (req, res) => {
   }
 };
 
-const acceptdoctor = async (req, res) => {
+const acceptlawyer = async (req, res) => {
   try {
     const user = await User.findOneAndUpdate(
       { _id: req.body.id },
-      { isDoctor: true, status: "accepted" }
+      { isLawyer: true, status: "accepted" }
     );
 
-    const doctor = await Doctor.findOneAndUpdate(
+    const lawyer = await Lawyer.findOneAndUpdate(
       { userId: req.body.id },
-      { isDoctor: true }
+      { isLawyer: true }
     );
 
     const notification = await Notification({
@@ -79,13 +79,13 @@ const acceptdoctor = async (req, res) => {
   }
 };
 
-const rejectdoctor = async (req, res) => {
+const rejectlawyer = async (req, res) => {
   try {
     const details = await User.findOneAndUpdate(
       { _id: req.body.id },
-      { isDoctor: false, status: "rejected" }
+      { isLawyer: false, status: "rejected" }
     );
-    const delDoc = await Doctor.findOneAndDelete({ userId: req.body.id });
+    const delDoc = await Lawyer.findOneAndDelete({ userId: req.body.id });
 
     const notification = await Notification({
       userId: req.body.id,
@@ -100,29 +100,29 @@ const rejectdoctor = async (req, res) => {
   }
 };
 
-const deletedoctor = async (req, res) => {
+const deletelawyer = async (req, res) => {
   try {
     const result = await User.findByIdAndUpdate(req.body.userId, {
-      isDoctor: false,
+      isLawyer: false,
     });
-    const removeDoc = await Doctor.findOneAndDelete({
+    const removeDoc = await Lawyer.findOneAndDelete({
       userId: req.body.userId,
     });
     const removeAppoint = await Appointment.findOneAndDelete({
       userId: req.body.userId,
     });
-    return res.send("Doctor deleted successfully");
+    return res.send("Lawyer deleted successfully");
   } catch (error) {
     console.log("error", error);
-    res.status(500).send("Unable to delete doctor");
+    res.status(500).send("Unable to delete lawyer");
   }
 };
 
 module.exports = {
-  getalldoctors,
-  getnotdoctors,
-  deletedoctor,
-  applyfordoctor,
-  acceptdoctor,
-  rejectdoctor,
+  getalllawyers,
+  getnotlawyers,
+  deletelawyer,
+  applyforlawyer,
+  acceptlawyer,
+  rejectlawyer,
 };

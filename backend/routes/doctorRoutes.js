@@ -1,19 +1,19 @@
 const express = require("express");
-const doctorController = require("../controllers/doctorController");
+const lawyerController = require("../controllers/lawyerController");
 const auth = require("../middleware/auth");
 
-const doctorRouter = express.Router();
+const lawyerRouter = express.Router();
 
-doctorRouter.get("/getalldoctors", doctorController.getalldoctors);
+lawyerRouter.get("/getalllawyers", lawyerController.getalllawyers);
 
-doctorRouter.get("/getnotdoctors", auth, doctorController.getnotdoctors);
+lawyerRouter.get("/getnotlawyers", auth, lawyerController.getnotlawyers);
 
-doctorRouter.post("/applyfordoctor", auth, doctorController.applyfordoctor);
+lawyerRouter.post("/applyforlawyer", auth, lawyerController.applyforlawyer);
 
-doctorRouter.put("/deletedoctor", auth, doctorController.deletedoctor);
+lawyerRouter.put("/deletelawyer", auth, lawyerController.deletelawyer);
 
-doctorRouter.put("/acceptdoctor", auth, doctorController.acceptdoctor);
+lawyerRouter.put("/acceptlawyer", auth, lawyerController.acceptlawyer);
 
-doctorRouter.put("/rejectdoctor", auth, doctorController.rejectdoctor);
+lawyerRouter.put("/rejectlawyer", auth, lawyerController.rejectlawyer);
 
-module.exports = doctorRouter;
+module.exports = lawyerRouter;

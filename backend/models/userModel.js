@@ -26,7 +26,7 @@ const schema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    isDoctor: {
+    isLawyer: {
       type: Boolean,
       default: false,
     },

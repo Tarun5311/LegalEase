@@ -19,7 +19,7 @@ const schema = mongoose.Schema(
       type: Number,
       required: true,
     },
-    isDoctor: {
+    isLawyer: {
       type: Boolean,
       default: false,
     },
@@ -29,6 +29,6 @@ const schema = mongoose.Schema(
   }
 );
 
-const Doctor = mongoose.model("Doctor", schema);
+const Lawyer = mongoose.model("Lawyer", schema);
 
-module.exports = Doctor;
+module.exports = Lawyer;
