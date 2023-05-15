@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <>
       <footer>
-        <div className="footer">
+        {/* <div className="footer">
           <div className="footer-links">
             <h3>Links</h3>
             <ul>
@@ -16,7 +16,7 @@ const Footer = () => {
                 <NavLink to={"/"}>Home</NavLink>
               </li>
               <li>
-                <NavLink to={"/lawyers"}>Lawyers</NavLink>
+                <NavLink to={"/doctors"}>Doctors</NavLink>
               </li>
               <li>
                 <NavLink to={"/appointments"}>Appointments</NavLink>
@@ -64,9 +64,10 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
         <div className="footer-bottom">
-          Made by Avinash © {new Date().getFullYear()}
+          Copyright © 2023 LegalEase.com, Inc.,
+          {/* Made by Avinash © {new Date().getFullYear()} */}
         </div>
       </footer>
     </>

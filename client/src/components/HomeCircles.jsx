@@ -22,7 +22,7 @@ const HomeCircles = () => {
         <span className="circle-name">
           Satisfied
           <br />
-          Patients
+          Clients
         </span>
       </div>
       <div className="circle">
