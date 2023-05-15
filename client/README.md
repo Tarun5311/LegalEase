@@ -6,7 +6,7 @@ This is a Simple web platform to find and consult with lawyers online for your l
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
