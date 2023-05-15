@@ -1,0 +1,71 @@
+.profile-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 16px;
+    border : 1px solid white;
+    border-radius: 15px;
+    box-shadow: 0 26px 42px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, .2);  
+    backdrop-filter: blur(1px);
+  
+  }
+  
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .profile-field {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .profile-field label {
+    width: 100px;
+  }
+  
+  .profile-field input[type='text'],
+  .profile-field input[type="tel"],
+  .profile-field input[type='email'] {
+    flex-grow: 1;
+    font-size: 18px;
+    padding: 8px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  .profile-field input[type='text']:focus,
+  .profile-field input[type="tel"]:focus,
+  .profile-field input[type='email']:focus {
+    outline: none;
+    /* border-bottom: 2px solid #1f2933; */
+  }
+  
+  .profile-buttons {
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .profile-buttons button {
+    font-size: 18px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 14px;
+    background-color: #1f2933;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .profile-buttons button:hover {
+    background-color: #456585;
+  }
+
+  .content1 {
+    margin-top: 60px;
+    margin-left: 200px;
+    padding: 20px;
+  }
+  

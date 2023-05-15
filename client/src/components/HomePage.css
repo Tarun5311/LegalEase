@@ -1,0 +1,65 @@
+body{
+  background: #d9d9d9;
+}
+.App {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.image-container {
+  /* justify-content: space-between; */
+  position: relative;
+
+  margin-bottom: 20px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 350px;
+  border-radius: 25px;
+  background-image: url("https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2022/11/Become_a_Lawyer.jpeg.jpg");
+  /* background-image: url('https://images.unsplash.com/photo-1423592707957-3b212afa6733?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80'); */
+}
+
+.image-container img {
+  width: 100%;
+  height: 350px;
+  border-radius: 25px;
+  /* margin : 20px; */
+  /* padding: 20px; */
+  /* max-height: 100%; */
+}
+
+.strip-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 120px;
+  width: 100%;
+  background-color: #f1f1f1;
+  border-radius: 25px;
+  margin-right: 30px;
+}
+
+.strip-container p{
+  margin:40px;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+.button:hover {
+  background-color: #3e8e41;
+}
+
+.content-home {
+  margin-top: 60px;
+  margin-left: 20px;
+  padding: 20px;
+}
