@@ -1,8 +1,15 @@
 const Appointment = require("../models/appointmentModel");
 const Notification = require("../models/notificationModel");
 const User = require("../models/userModel");
+const flog = require("../log");
 
 const getallappointments = async (req, res) => {
+  console.log("hi")
+  var id = null;
+  if (req.user != undefined) id = req.user.id;
+  var logText = req.method + " " + req.originalUrl + " " + id + " ";
+  console.log("hi")
+
   try {
     const keyword = req.query.search
       ? {
@@ -13,13 +20,20 @@ const getallappointments = async (req, res) => {
     const appointments = await Appointment.find(keyword)
       .populate("lawyerId")
       .populate("userId");
-    return res.send(appointments);
+    console.log("before flog appointments");
+    flog(logText + "200");
+    return res.send(logText);
   } catch (error) {
+    flog(logText + "500");
     res.status(500).send("Unable to get apponintments");
   }
 };
 
 const bookappointment = async (req, res) => {
+    var id = null;
+  if (req.user != undefined) id = req.user.id;
+  var logText = req.method + " " + req.originalUrl + " " + id + " ";
+
   try {
     const appointment = await Appointment({
       date: req.body.date,
@@ -45,14 +59,20 @@ const bookappointment = async (req, res) => {
     await lawyernotification.save();
 
     const result = await appointment.save();
+    flog(logText + "201");
     return res.status(201).send(result);
   } catch (error) {
     console.log("error", error);
+    flog(logText + "500");
     res.status(500).send("Unable to book appointment");
   }
 };
 
 const completed = async (req, res) => {
+    var id = null;
+  if (req.user != undefined) id = req.user.id;
+  var logText = req.method + " " + req.originalUrl + " " + id + " ";
+
   try {
     const alreadyFound = await Appointment.findOneAndUpdate(
       { _id: req.body.appointid },
@@ -75,8 +95,10 @@ const completed = async (req, res) => {
 
     await lawyernotification.save();
 
+    flog(logText + "201");
     return res.status(201).send("Appointment completed");
   } catch (error) {
+    flog(logText + "500");
     res.status(500).send("Unable to complete appointment");
   }
 };

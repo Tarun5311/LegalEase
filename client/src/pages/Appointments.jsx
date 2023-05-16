@@ -19,9 +19,11 @@ const Appointments = () => {
   const getAllAppoint = async (e) => {
     try {
       dispatch(setLoading(true));
+      console.log("here");
       const temp = await fetchData(
         `/appointment/getallappointments?search=${userId}`
       );
+      console.log(temp);
       setAppointments(temp);
       dispatch(setLoading(false));
     } catch (error) {}
