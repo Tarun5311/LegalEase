@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Empty from "./Empty";
 import fetchData from "../helper/apiCall";
 
-axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL = 'http://192.168.49.2:30001/api/';
 
 const AdminAppointments = () => {
   const [appointments, setAppointments] = useState([]);

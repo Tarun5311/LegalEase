@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import "../styles/doctorapply.css";
 import axios from "axios";
 
-axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL = 'http://192.168.49.2:30001/api';
 
 function DoctorApply() {
   const [formDetails, setFormDetails] = useState({

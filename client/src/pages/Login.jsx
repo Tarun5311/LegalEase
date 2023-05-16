@@ -8,7 +8,7 @@ import { setUserInfo } from "../redux/reducers/rootSlice";
 import jwt_decode from "jwt-decode";
 import fetchData from "../helper/apiCall";
 
-axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL = 'http://192.168.49.2:30001/api';
 
 function Login() {
   const dispatch = useDispatch();

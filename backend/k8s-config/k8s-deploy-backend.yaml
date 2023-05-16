@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  namespace: default
+  labels:
+    app: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        env:
+          - name: MONGO_URI
+            valueFrom:
+              configMapKeyRef:
+                name: mongodb-config
+                key: MONGO_URL
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: jwt-secret
+                key: jwt-secret
+        image: tarun2407/legalease_backend:latest
+        ports:
+        - name: api-port
+          containerPort: 5000
+      #   volumeMounts:
+      #     - name: data
+      #       mountPath: /app/logs/
+      # volumes:
+      # - name: data
+      #   hostPath: 
+      #     path: /home/docker/logs/
