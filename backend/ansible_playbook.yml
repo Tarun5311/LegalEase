@@ -1,0 +1,37 @@
+---
+- name: Deploying with Kubernetes
+  hosts: localhost
+  remote_user: tarun
+  tasks:
+    - name: delete existing config map
+      kubernetes.core.k8s:
+          definition: "{{ lookup('file', './k8s-config/k8s-configmap-backend.yaml') | from_yaml }}"
+          state: absent
+    - name: create backend config map
+      kubernetes.core.k8s:
+        definition: "{{ lookup('file', './k8s-config/k8s-configmap-backend.yaml') | from_yaml }}"
+        state: present
+    - name: delete existing backend secret
+      kubernetes.core.k8s:
+        definition: "{{ lookup('file', './k8s-config/k8s-secret-backend.yaml') | from_yaml }}"
+        state: absent
+    - name: create backend secret
+      kubernetes.core.k8s:
+        definition: "{{ lookup('file', './k8s-config/k8s-secret-backend.yaml') | from_yaml }}"
+        state: present
+    - name: delete existing backend deployment
+      kubernetes.core.k8s:
+        definition: "{{ lookup('file', './k8s-config/k8s-deploy-backend.yaml') | from_yaml }}"
+        state: absent
+    - name: create backend deployment
+      kubernetes.core.k8s:
+        definition: "{{ lookup('file', './k8s-config/k8s-deploy-backend.yaml') | from_yaml }}"
+        state: present
+    - name: delete existing backend service
+      kubernetes.core.k8s:
+        definition: "{{ lookup('file', './k8s-config/k8s-service-backend.yaml') | from_yaml }}" 
+        state: absent
+    - name: create backend service
+      kubernetes.core.k8s:
+        definition: "{{ lookup('file', './k8s-config/k8s-service-backend.yaml') | from_yaml }}" 
+        state: present

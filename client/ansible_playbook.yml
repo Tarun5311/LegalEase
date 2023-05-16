@@ -1,0 +1,21 @@
+---
+- name: Deploying frontend with Kubernetes
+  hosts: localhost
+  remote_user: tarun
+  tasks:
+    - name: delete existing frontend deployment
+      kubernetes.core.k8s:
+        definition: "{{ lookup('file', './k8s-deploy-frontend.yaml') | from_yaml }}"
+        state: absent
+    - name: create frontend deployment
+      kubernetes.core.k8s:
+        definition: "{{ lookup('file', './k8s-deploy-frontend.yaml') | from_yaml }}"
+        state: present
+    - name: delete frontend service
+      kubernetes.core.k8s:
+        definition: "{{ lookup('file', './k8s-service-frontend.yaml') | from_yaml }}" 
+        state: absent
+    - name: create frontend service
+      kubernetes.core.k8s:
+        definition: "{{ lookup('file', './k8s-service-frontend.yaml') | from_yaml }}" 
+        state: present
