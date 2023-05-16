@@ -6,12 +6,12 @@ const getallappointments = async (req, res) => {
   try {
     const keyword = req.query.search
       ? {
-          $or: [{ userId: req.query.search }, { doctorId: req.query.search }],
+          $or: [{ userId: req.query.search }, { lawyerId: req.query.search }],
         }
       : {};
 
     const appointments = await Appointment.find(keyword)
-      .populate("doctorId")
+      .populate("lawyerId")
       .populate("userId");
     return res.send(appointments);
   } catch (error) {
@@ -24,25 +24,25 @@ const bookappointment = async (req, res) => {
     const appointment = await Appointment({
       date: req.body.date,
       time: req.body.time,
-      doctorId: req.body.doctorId,
+      lawyerId: req.body.lawyerId,
       userId: req.locals,
     });
 
     const usernotification = Notification({
       userId: req.locals,
-      content: `You booked an appointment with Dr. ${req.body.doctorname} for ${req.body.date} ${req.body.time}`,
+      content: `You booked an appointment with Dr. ${req.body.lawyername} for ${req.body.date} ${req.body.time}`,
     });
 
     await usernotification.save();
 
     const user = await User.findById(req.locals);
 
-    const doctornotification = Notification({
-      userId: req.body.doctorId,
+    const lawyernotification = Notification({
+      userId: req.body.lawyerId,
       content: `You have an appointment with ${user.firstname} ${user.lastname} on ${req.body.date} at ${req.body.time}`,
     });
 
-    await doctornotification.save();
+    await lawyernotification.save();
 
     const result = await appointment.save();
     return res.status(201).send(result);
@@ -61,19 +61,19 @@ const completed = async (req, res) => {
 
     const usernotification = Notification({
       userId: req.locals,
-      content: `Your appointment with ${req.body.doctorname} has been completed`,
+      content: `Your appointment with ${req.body.lawyername} has been completed`,
     });
 
     await usernotification.save();
 
     const user = await User.findById(req.locals);
 
-    const doctornotification = Notification({
-      userId: req.body.doctorId,
+    const lawyernotification = Notification({
+      userId: req.body.lawyerId,
       content: `Your appointment with ${user.firstname} ${user.lastname} has been completed`,
     });
 
-    await doctornotification.save();
+    await lawyernotification.save();
 
     return res.status(201).send("Appointment completed");
   } catch (error) {

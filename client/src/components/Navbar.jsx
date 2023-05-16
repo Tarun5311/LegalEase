@@ -29,14 +29,14 @@ const Navbar = () => {
     <header>
       <nav className={iconActive ? "nav-active" : ""}>
         <h2 className="nav-logo">
-          <NavLink to={"/"}>HealthBooker</NavLink>
+          <NavLink to={"/"}>LegalEase</NavLink>
         </h2>
         <ul className="nav-links">
           <li>
             <NavLink to={"/"}>Home</NavLink>
           </li>
           <li>
-            <NavLink to={"/doctors"}>Doctors</NavLink>
+            <NavLink to={"/lawyers"}>Lawyers</NavLink>
           </li>
           {user.isAdmin && (
             <li>
@@ -52,7 +52,7 @@ const Navbar = () => {
                 <NavLink to={"/notifications"}>Notifications</NavLink>
               </li>
               <li>
-                <NavLink to={"/applyfordoctor"}>Apply for doctor</NavLink>
+                <NavLink to={"/applyforlawyer"}>Apply for lawyer</NavLink>
               </li>
               <li>
                 <HashLink to={"/#contact"}>Contact Us</HashLink>
