@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-axios.defaults.baseURL = 'http://192.168.49.2:30001/api';
+axios.defaults.baseURL = 'http://localhost:5000/api';
 
 const ApplyDoctor = () => {
   const navigate = useNavigate();
@@ -40,9 +40,9 @@ const ApplyDoctor = () => {
           }
         ),
         {
-          success: "Doctor application sent successfully",
-          error: "Unable to send Doctor application",
-          loading: "Sending doctor application...",
+          success: "Lawyer application sent successfully",
+          error: "Unable to send Lawyer application",
+          loading: "Sending lawyer application...",
         }
       );
 

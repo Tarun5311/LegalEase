@@ -8,7 +8,7 @@ import Loading from "../components/Loading";
 import fetchData from "../helper/apiCall";
 import jwt_decode from "jwt-decode";
 
-axios.defaults.baseURL = 'http://192.168.49.2:30001/api';
+axios.defaults.baseURL = 'http://localhost:5000/api';
 
 function Profile() {
   const { userId } = jwt_decode(localStorage.getItem("token"));

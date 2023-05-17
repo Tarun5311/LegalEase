@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = 'http://192.168.49.2:30001/api';
+axios.defaults.baseURL = 'http://localhost:5000/api';
 
 const fetchData = async (url) => {
   const { data } = await axios.get(url, {

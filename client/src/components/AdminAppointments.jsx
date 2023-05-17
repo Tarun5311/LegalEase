@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Empty from "./Empty";
 import fetchData from "../helper/apiCall";
 
-axios.defaults.baseURL = 'http://192.168.49.2:30001/api/';
+axios.defaults.baseURL = 'http://localhost:5000/api/';
 
 const AdminAppointments = () => {
   const [appointments, setAppointments] = useState([]);
@@ -60,7 +60,7 @@ const AdminAppointments = () => {
           "/appointment/completed",
           {
             appointid: ele._id,
-            doctorId: ele.doctorId._id,
+            lawyerId: ele.lawyerId._id,
             doctorname: `${ele.userId.firstname} ${ele.userId.lastname}`,
           },
           {
@@ -112,9 +112,9 @@ const AdminAppointments = () => {
                       <tr key={ele._id}>
                         <td>{i + 1}</td>
                         <td>
-                          {ele.doctorId?.firstname +
+                          {ele.lawyerId?.firstname +
                             " " +
-                            ele.doctorId?.lastname}
+                            ele.lawyerId?.lastname}
                         </td>
                         <td>
                           {ele.userId?.firstname + " " + ele.userId?.lastname}

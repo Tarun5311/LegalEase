@@ -6,12 +6,12 @@ const getallappointments = async (req, res) => {
   try {
     const keyword = req.query.search
       ? {
-          $or: [{ userId: req.query.search }, { doctorId: req.query.search }],
+          $or: [{ userId: req.query.search }, { lawyerId: req.query.search }],
         }
       : {};
 
     const appointments = await Appointment.find(keyword)
-      .populate("doctorId")
+      .populate("lawyerId")
       .populate("userId");
     return res.send(appointments);
   } catch (error) {
@@ -24,7 +24,7 @@ const bookappointment = async (req, res) => {
     const appointment = await Appointment({
       date: req.body.date,
       time: req.body.time,
-      doctorId: req.body.doctorId,
+      lawyerId: req.body.lawyerId,
       userId: req.locals,
     });
 
@@ -38,7 +38,7 @@ const bookappointment = async (req, res) => {
     const user = await User.findById(req.locals);
 
     const doctornotification = Notification({
-      userId: req.body.doctorId,
+      userId: req.body.lawyerId,
       content: `You have an appointment with ${user.firstname} ${user.lastname} on ${req.body.date} at ${req.body.time}`,
     });
 
@@ -69,7 +69,7 @@ const completed = async (req, res) => {
     const user = await User.findById(req.locals);
 
     const doctornotification = Notification({
-      userId: req.body.doctorId,
+      userId: req.body.lawyerId,
       content: `Your appointment with ${user.firstname} ${user.lastname} has been completed`,
     });
 

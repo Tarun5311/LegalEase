@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Empty from "./Empty";
 import fetchData from "../helper/apiCall";
 
-axios.defaults.baseURL = 'http://192.168.49.2:30001/api';
+axios.defaults.baseURL = 'http://localhost:5000/api';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -74,7 +74,7 @@ const Users = () => {
                     <th>Mobile No.</th>
                     <th>Age</th>
                     <th>Gender</th>
-                    <th>Is Doctor</th>
+                    <th>Is Lawyer</th>
                     <th>Remove</th>
                   </tr>
                 </thead>
@@ -96,7 +96,7 @@ const Users = () => {
                         <td>{ele.mobile}</td>
                         <td>{ele.age}</td>
                         <td>{ele.gender}</td>
-                        <td>{ele.isDoctor ? "Yes" : "No"}</td>
+                        <td>{ele.isLawyer ? "Yes" : "No"}</td>
                         <td className="select">
                           <button
                             className="btn user-btn"

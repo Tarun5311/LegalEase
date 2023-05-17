@@ -38,7 +38,7 @@ const Appointments = () => {
           "/appointment/completed",
           {
             appointid: ele._id,
-            doctorId: ele.doctorId._id,
+            lawyerId: ele.lawyerId._id,
             doctorname: `${ele.userId.firstname} ${ele.userId.lastname}`,
           },
           {
@@ -82,7 +82,7 @@ const Appointments = () => {
                     <th>Booking Date</th>
                     <th>Booking Time</th>
                     <th>Status</th>
-                    {userId === appointments[0].doctorId._id ? (
+                    {userId === appointments[0].lawyerId._id ? (
                       <th>Action</th>
                     ) : (
                       <></>
@@ -95,7 +95,7 @@ const Appointments = () => {
                       <tr key={ele._id}>
                         <td>{i + 1}</td>
                         <td>
-                          {ele.doctorId.firstname + " " + ele.doctorId.lastname}
+                          {ele.lawyerId.firstname + " " + ele.lawyerId.lastname}
                         </td>
                         <td>
                           {ele.userId.firstname + " " + ele.userId.lastname}
@@ -105,7 +105,7 @@ const Appointments = () => {
                         <td>{ele.createdAt.split("T")[0]}</td>
                         <td>{ele.updatedAt.split("T")[1].split(".")[0]}</td>
                         <td>{ele.status}</td>
-                        {userId === ele.doctorId._id ? (
+                        {userId === ele.lawyerId._id ? (
                           <td>
                             <button
                               className={`btn user-btn accept-btn ${

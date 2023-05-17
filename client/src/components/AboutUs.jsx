@@ -15,13 +15,14 @@ const AboutUs = () => {
           </div>
           <div className="hero-content">
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Quibusdam tenetur doloremque molestias repellat minus asperiores
-              in aperiam dolor, quaerat praesentium. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Voluptatibus, repudiandae! Lorem
-              ipsum dolor sit amet consectetur adipisicing elit. Provident
-              quibusdam doloremque ex? Officia atque ab dolore? Tempore totam
-              non ea!
+            At LegalEase, we are committed to providing 
+            accessible and reliable legal assistance to 
+            individuals like you. With a team of experienced attorneys, 
+            we strive to demystify the legal landscape and empower you 
+            with the knowledge and resources you need to navigate your legal challenges. 
+            Whether it's a personal injury claim, family law matter, or any other legal concern, 
+            we are here to advocate for your rights and deliver the justice you deserve. 
+            Trust us to be your trusted legal partner, dedicated to your success.   
             </p>
           </div>
         </div>

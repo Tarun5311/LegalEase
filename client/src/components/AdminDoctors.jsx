@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Empty from "./Empty";
 import fetchData from "../helper/apiCall";
 
-axios.defaults.baseURL = 'http://192.168.49.2:30001/api';
+axios.defaults.baseURL = 'http://localhost:5000/api';
 
 const AdminDoctors = () => {
   const [doctors, setDoctors] = useState([]);
@@ -61,7 +61,7 @@ const AdminDoctors = () => {
         <Loading />
       ) : (
         <section className="user-section">
-          <h3 className="home-sub-heading">All Doctors</h3>
+          <h3 className="home-sub-heading">All Lawyers</h3>
           {doctors.length > 0 ? (
             <div className="user-container">
               <table>

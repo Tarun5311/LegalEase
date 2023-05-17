@@ -10,13 +10,13 @@ const Footer = () => {
       <footer>
         <div className="footer">
           <div className="footer-links">
-            <h3>Links</h3>
+            {/* <h3>Links</h3>
             <ul>
               <li>
                 <NavLink to={"/"}>Home</NavLink>
               </li>
               <li>
-                <NavLink to={"/lawyers"}>Doctors</NavLink>
+                <NavLink to={"/lawyers"}>Lawyers</NavLink>
               </li>
               <li>
                 <NavLink to={"/appointments"}>Appointments</NavLink>
@@ -30,9 +30,9 @@ const Footer = () => {
               <li>
                 <NavLink to={"/profile"}>Profile</NavLink>
               </li>
-            </ul>
+            </ul> */}
           </div>
-          <div className="social">
+          {/* <div className="social">
             <h3>Social links</h3>
             <ul>
               <li className="facebook">
@@ -63,10 +63,11 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
         <div className="footer-bottom">
-          Made by Avinash © {new Date().getFullYear()}
+          Copyright © 2023 LegalEase.com, Inc.,
+          
         </div>
       </footer>
     </>

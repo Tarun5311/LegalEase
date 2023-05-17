@@ -7,7 +7,7 @@ const schema = mongoose.Schema(
       ref: "User",
       required: true,
     },
-    doctorId: {
+    lawyerId: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: "User",
       required: true,

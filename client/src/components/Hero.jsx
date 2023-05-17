@@ -7,13 +7,14 @@ const Hero = () => {
     <section className="hero">
       <div className="hero-content">
         <h1>
-          Your Health, <br />
+          Your Rights, <br />
           Our Responsibility
         </h1>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-          tenetur doloremque molestias repellat minus asperiores in aperiam
-          dolor, quaerat praesentium.
+        Empowering you with knowledge, defending your rights. 
+        Our dedicated team of legal experts is here to guide you through
+        the complexities of the law, ensuring your rights are protected. 
+        Your peace of mind is our utmost responsibility.   
         </p>
       </div>
       <div className="hero-img">
