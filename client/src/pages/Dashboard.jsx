@@ -1,7 +1,7 @@
 import React from "react";
 import AdminApplications from "../components/AdminApplications";
 import AdminAppointments from "../components/AdminAppointments";
-import AdminDoctors from "../components/AdminDoctors";
+import AdminLawyers from "../components/AdminLawyers";
 import Sidebar from "../components/Sidebar";
 import Users from "../components/Users";
 
@@ -14,8 +14,8 @@ const Dashboard = (props) => {
           <Sidebar />
           {type === "users" ? (
             <Users />
-          ) : type === "doctors" ? (
-            <AdminDoctors />
+          ) : type === "lawyers" ? (
+            <AdminLawyers />
           ) : type === "applications" ? (
             <AdminApplications />
           ) : type === "appointments" ? (

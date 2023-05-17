@@ -25,10 +25,10 @@ const BookAppointment = ({ setModalOpen, ele }) => {
         axios.post(
           "/appointment/bookappointment",
           {
-            doctorId: ele.userId._id,
+            lawyerId: ele.userId._id,
             date: formDetails.date,
             time: formDetails.time,
-            doctorname: `${ele.userId.firstname} ${ele.userId.lastname}`,
+            lawyername: `${ele.userId.firstname} ${ele.userId.lastname}`,
           },
           {
             headers: {

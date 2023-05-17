@@ -10,10 +10,10 @@ import Loading from "./components/Loading";
 const Home = lazy(() => import("./pages/Home"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Appointments = lazy(() => import("./pages/Appointments"));
-const Doctors = lazy(() => import("./pages/Doctors"));
+const Lawyers = lazy(() => import("./pages/Lawyers"));
 const Profile = lazy(() => import("./pages/Profile"));
 const Notifications = lazy(() => import("./pages/Notifications"));
-const ApplyDoctor = lazy(() => import("./pages/ApplyDoctor"));
+const ApplyLawyer = lazy(() => import("./pages/ApplyLawyer"));
 const Error = lazy(() => import("./pages/Error"));
 
 function App() {
@@ -39,8 +39,8 @@ function App() {
             element={<Home />}
           />
           <Route
-            path="/doctors"
-            element={<Doctors />}
+            path="/lawyers"
+            element={<Lawyers />}
           />
           <Route
             path="/appointments"
@@ -59,10 +59,10 @@ function App() {
             }
           />
           <Route
-            path="/applyfordoctor"
+            path="/applyforlawyer"
             element={
               <Protected>
-                <ApplyDoctor />
+                <ApplyLawyer />
               </Protected>
             }
           />
@@ -83,10 +83,10 @@ function App() {
             }
           />
           <Route
-            path="/dashboard/doctors"
+            path="/dashboard/lawyers"
             element={
               <Admin>
-                <Dashboard type={"doctors"} />
+                <Dashboard type={"lawyers"} />
               </Admin>
             }
           />
