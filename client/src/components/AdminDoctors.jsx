@@ -39,9 +39,9 @@ const AdminDoctors = () => {
             }
           ),
           {
-            success: "Doctor deleted successfully",
-            error: "Unable to delete Doctor",
-            loading: "Deleting Doctor...",
+            success: "Lawyer deleted successfully",
+            error: "Unable to delete Lawyer",
+            loading: "Deleting Lawyer...",
           }
         );
         getAllDoctors();

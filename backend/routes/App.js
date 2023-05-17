@@ -10,10 +10,10 @@ import Loading from "./components/Loading";
 const Home = lazy(() => import("./pages/Home"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Appointments = lazy(() => import("./pages/Appointments"));
-const Doctors = lazy(() => import("./pages/Doctors"));
+const http://192.168.49.2:30001/s = lazy(() => import("./pages/http://192.168.49.2:30001/s"));
 const Profile = lazy(() => import("./pages/Profile"));
 const Notifications = lazy(() => import("./pages/Notifications"));
-const ApplyDoctor = lazy(() => import("./pages/ApplyDoctor"));
+const Applyhttp://192.168.49.2:30001/ = lazy(() => import("./pages/Applyhttp://192.168.49.2:30001/"));
 const Error = lazy(() => import("./pages/Error"));
 
 function App() {
@@ -40,7 +40,7 @@ function App() {
           />
           <Route
             path="/lawyers"
-            element={<Doctors />}
+            element={<http://192.168.49.2:30001/s />}
           />
           <Route
             path="/appointments"
@@ -59,10 +59,10 @@ function App() {
             }
           />
           <Route
-            path="/applyfordoctor"
+            path="/applyforhttp://192.168.49.2:30001/"
             element={
               <Protected>
-                <ApplyDoctor />
+                <Applyhttp://192.168.49.2:30001/ />
               </Protected>
             }
           />
@@ -83,10 +83,10 @@ function App() {
             }
           />
           <Route
-            path="/dashboard/lawyers"
+            path="/dashboard/http://192.168.49.2:30001/s"
             element={
               <Admin>
-                <Dashboard type={"doctors"} />
+                <Dashboard type={"http://192.168.49.2:30001/s"} />
               </Admin>
             }
           />

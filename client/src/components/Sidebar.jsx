@@ -30,7 +30,7 @@ const Sidebar = () => {
     },
     {
       name: "Doctors",
-      path: "/dashboard/doctors",
+      path: "/dashboard/lawyers",
       icon: <FaUserMd />,
     },
     {

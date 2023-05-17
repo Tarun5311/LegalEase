@@ -95,8 +95,8 @@ const AdminAppointments = () => {
                 <thead>
                   <tr>
                     <th>S.No</th>
-                    <th>Doctor</th>
-                    <th>Patient</th>
+                    <th>Lawyer</th>
+                    <th>Client</th>
                     <th>Appointment Date</th>
                     <th>Appointment Time</th>
                     <th>Booking Date</th>

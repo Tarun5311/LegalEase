@@ -30,7 +30,7 @@ const bookappointment = async (req, res) => {
 
     const usernotification = Notification({
       userId: req.locals,
-      content: `You booked an appointment with Dr. ${req.body.doctorname} for ${req.body.date} ${req.body.time}`,
+      content: `You booked an appointment with advocate ${req.body.doctorname} for ${req.body.date} ${req.body.time}`,
     });
 
     await usernotification.save();
